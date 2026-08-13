@@ -173,7 +173,7 @@
             justify-content: space-between;
         }
 
-        /* 📜 動態捲動卡片樣式（已移除頂部提示文字標籤） */
+        /* 📜 動態捲動卡片樣式 */
         .description-scroll-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -204,7 +204,7 @@
 
         /* 🎯 中英文字體分離與層級對比樣式 */
         p.paragraph-desc {
-            font-size: 13px; /* 中文字級清晰易讀 */
+            font-size: 13.5px; /* 中文字級清晰易讀 */
             font-weight: 500;
             margin: 0 0 8px 0;
             text-align: justify;
@@ -263,8 +263,8 @@
             width: 100%; 
             border-collapse: separate; /* 改為 separate 以完整呈現整體外框 */
             border-spacing: 0;
-            font-size: 12.5px;
-            table-layout: fixed;
+            font-size: 12px;
+            table-layout: fixed; /* 嚴格固定欄位寬度，防溢出！ */
             word-wrap: break-word;
             border: 1px solid var(--border-color) !important; /* 強制整體外框顯影 */
             border-radius: 6px;
@@ -280,6 +280,12 @@
             text-align: left; 
             line-height: 1.5;
             word-break: break-word;
+        }
+
+        /* 🎯 第二欄章節專屬對齊優化：縮小左右 Padding，讓章節內容精準居中、不壓右線！ */
+        table.ad-table td.col-chapter {
+            text-align: center !important;
+            padding: 8px 4px !important;
         }
 
         /* 消除最右側與最底部的重複邊框 */
@@ -565,28 +571,37 @@
                 <p class="paragraph-desc" style="font-size: 11.5px; margin-bottom: 6px; color: var(--text-sub);">Part 2: Systematic Grammar & Guided Writing Topics Map</p>
                 
                 <div class="table-container">
-                    <table class="ad-table" style="margin-top: 4px; margin-bottom: 2px; font-size: 12px;">
+                    <table class="ad-table" style="margin-top: 4px; margin-bottom: 2px; font-size: 11.5px;">
                         <thead>
                             <tr>
-                                <th style="width: 26%;">語法學習主題 | Grammar Area</th>
-                                <th style="width: 24%;">對應章節 | Chapters</th>
+                                <th style="width: 28%;">語法學習主題 | Grammar Area</th>
+                                <th style="width: 22%;">對應章節 | Chapters</th>
                                 <th style="width: 50%;">對應短文寫作題目與能力 | Guided Writing Topics</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="center-text">⏳ 全時態運用與對比<br><span class="note">Tense Contrast Mastery</span></td>
-                                <td class="center-text"><strong>Chapter 1, 2, 3</strong><br><span class="note">(Present, Past, Future)</span></td>
+                                <td class="center-text"><span class="no-orphan">⏳ 全時態運用與對比</span><br><span class="note">Tense Contrast Mastery</span></td>
+                                <td class="col-chapter">
+                                    <strong class="no-orphan">Chapter 1, 2, 3</strong><br>
+                                    <span class="note">(Present, Past, Future)</span>
+                                </td>
                                 <td>• <strong>寫作題目：My Daily Life & A Special Day</strong><br>（學習運用現在式說明習慣，並用過去式寫出難忘的一天與故事敘述）</td>
                             </tr>
                             <tr>
-                                <td class="center-text">🍎 數量表達與名詞邏輯<br><span class="note">Count / Noncount Nouns</span></td>
-                                <td class="center-text"><strong>Chapter 4</strong><br><span class="note">(Nouns & Quantifiers)</span></td>
+                                <td class="center-text"><span class="no-orphan">🍎 數量表達與名詞邏輯</span><br><span class="note">Count / Noncount Nouns</span></td>
+                                <td class="col-chapter">
+                                    <strong class="no-orphan">Chapter 4</strong><br>
+                                    <span class="note">(Nouns & Quantifiers)</span>
+                                </td>
                                 <td>• <strong>寫作題目：My Favorite Food & Recipe Instructions</strong><br>（正確運用可數/不可數名詞與數量詞，寫出最喜歡的美食與步驟）</td>
                             </tr>
                             <tr>
-                                <td class="center-text">🏡 代名詞與空間結構<br><span class="note">Pronouns & Structure</span></td>
-                                <td class="center-text"><strong>Chapter 6</strong><br><span class="note">(Nouns & Pronouns)</span></td>
+                                <td class="center-text"><span class="no-orphan">🏡 代名詞與空間結構</span><br><span class="note">Pronouns & Structure</span></td>
+                                <td class="col-chapter">
+                                    <strong class="no-orphan">Chapter 6</strong><br>
+                                    <span class="note">(Nouns & Pronouns)</span>
+                                </td>
                                 <td>• <strong>寫作題目：An Ideal Neighborhood or Dream Home</strong><br>（運用主受格、所有格與方位結構，寫出理想中的社區或空間）</td>
                             </tr>
                         </tbody>
@@ -608,7 +623,7 @@
     <!-- ================= PAGE 3 ================= -->
     <div class="page">
         <div class="page-content" style="padding-top: 5px;">
-            <h2 class="section-heading" style="margin-top: 0;">📌 班級招生資訊 | Class Information</h2>
+            <h2 class="section-heading" style="margin-top: 0;">📌 班級招生資訊 | Course Details</h2>
             <div class="table-container">
                 <table class="center-table ad-table">
                     <thead>
