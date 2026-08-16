@@ -204,7 +204,7 @@
 
         /* 🎯 中英文字體分離與層級對比樣式 */
         p.paragraph-desc {
-            font-size: 13.5px; /* 中文字級清晰易讀 */
+            font-size: 13.5px;
             font-weight: 500;
             margin: 0 0 8px 0;
             text-align: justify;
@@ -246,13 +246,12 @@
             font-weight: 700;
         }
 
-        /* 🎯 避孤晶片：確保標語與單詞最後關鍵詞不單獨換行成單字 */
         .no-orphan {
             display: inline-block;
             white-space: nowrap;
         }
 
-        /* 🛡️ 核心表格全邊框防線：外框與內部單元格完整顯示 */
+        /* 🔒 核心表格三大邊框防線：外框與內部單元格強制以 #1b3d6d 實體深藍顯影 */
         .table-container {
             width: 100%;
             margin-top: 8px;
@@ -261,20 +260,21 @@
 
         table.ad-table { 
             width: 100%; 
-            border-collapse: separate; /* 改為 separate 以完整呈現整體外框 */
+            border-collapse: separate;
             border-spacing: 0;
             font-size: 12px;
-            table-layout: fixed; /* 嚴格固定欄位寬度，防溢出！ */
+            table-layout: fixed;
             word-wrap: break-word;
-            border: 1px solid var(--border-color) !important; /* 強制整體外框顯影 */
+            border: 1px solid #1b3d6d !important; /* 核心規範：1px 實體深藍外框 */
             border-radius: 6px;
             overflow: hidden;
+            background-color: #ffffff;
         }
 
         /* 明確設定內部格線與邊界 */
         table.ad-table th, table.ad-table td { 
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid #1b3d6d !important;
+            border-bottom: 1px solid #1b3d6d !important;
             padding: 9px 12px; 
             vertical-align: middle; 
             text-align: left; 
@@ -282,7 +282,6 @@
             word-break: break-word;
         }
 
-        /* 🎯 第二欄章節專屬對齊優化：縮小左右 Padding，讓章節內容精準居中、不壓右線！ */
         table.ad-table td.col-chapter {
             text-align: center !important;
             padding: 8px 4px !important;
@@ -290,10 +289,10 @@
 
         /* 消除最右側與最底部的重複邊框 */
         table.ad-table th:last-child, table.ad-table td:last-child {
-            border-right: none;
+            border-right: none !important;
         }
         table.ad-table tr:last-child td {
-            border-bottom: none;
+            border-bottom: none !important;
         }
 
         table.ad-table th { 
@@ -331,7 +330,7 @@
             color: var(--text-sub); 
             display: block; 
             margin-top: 2px; 
-            font-size: 11px; /* 英文說明縮小襯托 */
+            font-size: 11px; 
             font-weight: 400; 
             line-height: 1.4;
             text-align: justify;
@@ -375,9 +374,8 @@
             font-family: inherit;
         }
 
-        /* 🖼️ 頁尾 Advancekids.png 圖檔左右延伸與放大調校 */
         .footer-image-box {
-            width: calc(100% + 80px); /* 向左右擴展延伸 */
+            width: calc(100% + 80px);
             margin-left: -40px; 
             margin-top: 8px;
             overflow: hidden;
@@ -387,9 +385,9 @@
         }
 
         .page-footer-img {
-            width: 100%; /* 寬度100%滿版延伸 */
+            width: 100%; 
             max-width: 100%; 
-            max-height: 145px; /* 高度適度放至 145px 展現大氣視覺 */
+            max-height: 145px; 
             object-fit: contain;
             display: block;
             margin: 0 auto;
@@ -414,7 +412,6 @@
             margin-bottom: 4px;
         }
 
-        /* 🎯 按鈕圖檔尺寸最佳化 */
         .cta-join-us-img {
             width: 100%;
             max-width: 145px;
@@ -445,13 +442,13 @@
                 padding: 15mm 18mm 0 18mm !important; 
                 margin: 0;
                 border-bottom: none;
-                overflow: hidden !important; /* 列印時鎖定邊界 */
+                overflow: hidden !important;
             }
             .page:last-child { page-break-after: avoid; }
             .description-scroll-box { max-height: none !important; overflow-y: visible !important; border: none !important; padding: 0 !important; }
             .header-flex-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             table.ad-table th, table.ad-table td { 
-                border: 1px solid var(--border-color) !important; 
+                border: 1px solid #1b3d6d !important; 
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
             }
@@ -512,7 +509,8 @@
                 </p>
                 <p class="paragraph-desc" style="margin-top: 8px; border-top: 1px dashed var(--border-color); padding-top: 8px;">
                     <strong style="font-weight: 800; color: var(--uci-blue);">【Think Deeply, Write Confidently】</strong>
-                    <span class="light-en-text">When learning English is no longer just about daily chit-chat, but about organizing thoughts into clear, persuasive writing, don't worry! Students at this age have amazing ideas; they just need a cool way to turn those mental sparks into well-organized articles. In the 38 lessons of our Advance B1 class, teachers will guide students patiently and step by step. We will help them wave goodbye to "Chinglish" and writing anxiety, building a complete and solid structure for English expression! Through Oxford Discover 3, we will explore cross-curricular thematic reading to build a rich vocabulary and strong article comprehension, fully integrating Azar Basic Grammar. Instead of mindlessly memorizing grammar rules, students will apply grammar directly to sentence patterns and practical paragraph writing. Through the progressive practice of "Core Grammar ➔ Sentence Formulation ➔ Paragraph Implementation," students will master core tenses, parts of speech, and noun inflections, eliminating structural errors. They will also master the use of conjunctions and compound sentences, applying basic writing techniques to compose clear and grammatically correct short essays. This semester, students are expected to steadily reach the introductory writing proficiency of CEFR B1 (Threshold). They will be able to write connected, clear text on familiar topics or personal experiences, building ultimate confidence and a sense of achievement for their future essays!</span>
+                    <!-- 🎯 核心修改特區：將 don't 改為大寫開頭的 Don't worry! -->
+                    <span class="light-en-text">When learning English is no longer just about daily chit-chat, but about organizing thoughts into clear, persuasive writing, Don't worry! Students at this age have amazing ideas; they just need a cool way to turn those mental sparks into well-organized articles. In the 38 lessons of our Advance B1 class, teachers will guide students patiently and step by step. We will help them wave goodbye to "Chinglish" and writing anxiety, building a complete and solid structure for English expression! Through Oxford Discover 3, we will explore cross-curricular thematic reading to build a rich vocabulary and strong article comprehension, fully integrating Azar Basic Grammar. Instead of mindlessly memorizing grammar rules, students will apply grammar directly to sentence patterns and practical paragraph writing. Through the progressive practice of "Core Grammar ➔ Sentence Formulation ➔ Paragraph Implementation," students will master core tenses, parts of speech, and noun inflections, eliminating structural errors. They will also master the use of conjunctions and compound sentences, applying basic writing techniques to compose clear and grammatically correct short essays. This semester, students are expected to steadily reach the introductory writing proficiency of CEFR B1 (Threshold). They will be able to write connected, clear text on familiar topics or personal experiences, building ultimate confidence and a sense of achievement for their future essays!</span>
                 </p>
             </div>
 
@@ -696,7 +694,7 @@
 function openDualLinks(event) {
     if (event) event.preventDefault();
     
-    // 🎯 Aegis 核心修正：標準化網址，防止被瀏覽器彈跳阻斷並移除結尾多餘斜線
+    // 🎯 Aegis 核心修正：標準化網址，防止被瀏覽器彈跳阻斷
     const mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
     const contractLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
     
