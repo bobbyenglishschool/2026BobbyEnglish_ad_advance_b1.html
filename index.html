@@ -15,10 +15,11 @@
         :root {
             --uci-blue: #1b3d6d; 
             --uci-blue-dark: #102a4d;
+            --uci-blue-hover: #142f54;
             --uci-gold: #fecc07; 
             --soft-red: #e74c3c;
             --card-bg: #f8fafc;
-            --border-color: #cbd5e1;
+            --border-color: #1b3d6d; /* 🎯 強制全面為巴比深藍色外框 */
             --line-color: #cbd5e1;
             --text-main: #1e293b;
             --text-sub: #475569;
@@ -176,8 +177,8 @@
         /* 📜 動態捲動卡片樣式 */
         .description-scroll-box {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--uci-blue);
+            border: 1px solid #1b3d6d !important;
+            border-left: 4px solid var(--uci-blue) !important;
             padding: 16px 20px;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -260,21 +261,20 @@
 
         table.ad-table { 
             width: 100%; 
-            border-collapse: separate;
-            border-spacing: 0;
+            border-collapse: collapse !important;
+            margin-bottom: 0;
             font-size: 12px;
             table-layout: fixed;
             word-wrap: break-word;
-            border: 1px solid #1b3d6d !important; /* 核心規範：1px 實體深藍外框 */
-            border-radius: 6px;
+            border: 1px solid #1b3d6d !important;
+            border-radius: 0px;
             overflow: hidden;
             background-color: #ffffff;
         }
 
         /* 明確設定內部格線與邊界 */
         table.ad-table th, table.ad-table td { 
-            border-right: 1px solid #1b3d6d !important;
-            border-bottom: 1px solid #1b3d6d !important;
+            border: 1px solid #1b3d6d !important;
             padding: 9px 12px; 
             vertical-align: middle; 
             text-align: left; 
@@ -287,16 +287,8 @@
             padding: 8px 4px !important;
         }
 
-        /* 消除最右側與最底部的重複邊框 */
-        table.ad-table th:last-child, table.ad-table td:last-child {
-            border-right: none !important;
-        }
-        table.ad-table tr:last-child td {
-            border-bottom: none !important;
-        }
-
         table.ad-table th { 
-            background-color: #f1f5f9; 
+            background-color: #f0f4f8; 
             color: var(--uci-blue); 
             text-align: center; 
             font-weight: 700;
@@ -311,7 +303,7 @@
 
         .info-card {
             background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            border: 1px solid #1b3d6d !important;
             padding: 12px 16px;
             border-radius: 6px;
             margin-top: 6px;
@@ -430,6 +422,7 @@
 
         /* 🖨️ 列印專用防護罩：只有在「真正列印紙張」時才精準鎖定 A4 尺寸！ */
         @media print {
+            @page { size: A4 portrait; margin: 10mm 15mm; }
             body { background-color: #fff; padding: 0; margin: 0; }
             .ad-container { max-width: 100%; width: 100%; box-shadow: none; border-radius: 0; }
             .page {
@@ -447,12 +440,12 @@
             .page:last-child { page-break-after: avoid; }
             .description-scroll-box { max-height: none !important; overflow-y: visible !important; border: none !important; padding: 0 !important; }
             .header-flex-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            table.ad-table th, table.ad-table td { 
+            table.ad-table, table.ad-table th, table.ad-table td { 
                 border: 1px solid #1b3d6d !important; 
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
             }
-            table.ad-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            table.ad-table th { background-color: #f0f4f8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .footer-image-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .last-page-footer-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .page-footer-img { max-height: 130px !important; }
@@ -509,7 +502,6 @@
                 </p>
                 <p class="paragraph-desc" style="margin-top: 8px; border-top: 1px dashed var(--border-color); padding-top: 8px;">
                     <strong style="font-weight: 800; color: var(--uci-blue);">【Think Deeply, Write Confidently】</strong>
-                    <!-- 🎯 核心修改特區：將 don't 改為大寫開頭的 Don't worry! -->
                     <span class="light-en-text">When learning English is no longer just about daily chit-chat, but about organizing thoughts into clear, persuasive writing, Don't worry! Students at this age have amazing ideas; they just need a cool way to turn those mental sparks into well-organized articles. In the 38 lessons of our Advance B1 class, teachers will guide students patiently and step by step. We will help them wave goodbye to "Chinglish" and writing anxiety, building a complete and solid structure for English expression! Through Oxford Discover 3, we will explore cross-curricular thematic reading to build a rich vocabulary and strong article comprehension, fully integrating Azar Basic Grammar. Instead of mindlessly memorizing grammar rules, students will apply grammar directly to sentence patterns and practical paragraph writing. Through the progressive practice of "Core Grammar ➔ Sentence Formulation ➔ Paragraph Implementation," students will master core tenses, parts of speech, and noun inflections, eliminating structural errors. They will also master the use of conjunctions and compound sentences, applying basic writing techniques to compose clear and grammatically correct short essays. This semester, students are expected to steadily reach the introductory writing proficiency of CEFR B1 (Threshold). They will be able to write connected, clear text on familiar topics or personal experiences, building ultimate confidence and a sense of achievement for their future essays!</span>
                 </p>
             </div>
@@ -550,7 +542,7 @@
     <div class="page">
         <div class="page-content" style="padding-top: 5px;">
             <h2 class="section-heading" style="margin-top: 0;">🗺️ 本學期的進度與內容規劃 | Semester Course Map (38 Lessons)</h2>
-            <p class="paragraph-desc" style="margin-bottom: 4px;">全期 38 堂課，細心安排跨學科閱讀主題，並將語法學習與短文寫作題目深度結合：<span class="light-en-text" style="display:block; margin-top: 2px;">Comprehensive progression integrating Oxford Discover 3 with Azar Fundamentals guided writing:</span></p>
+            <p class="paragraph-desc" style="margin-bottom: 4px;">全期共 38 堂課，細心安排跨學科閱讀主題，並將語法學習與短文寫作題目深度結合：<span class="light-en-text" style="display:block; margin-top: 2px;">Comprehensive progression integrating Oxford Discover 3 with Azar Fundamentals guided writing:</span></p>
 
             <div class="info-card" style="padding: 10px 14px;">
                 <h3 style="font-size: 13.5px; color: var(--uci-blue); font-weight: 700; margin: 0 0 4px 0;">🌍【學術閱讀單元】Oxford Discover 3 (Units 9-18)</h3>
@@ -637,7 +629,17 @@
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">⏰ 上課時間 | Class Time</td>
-                            <td class="left-align">每週二、四晚上 7:00 p.m. - 9:00 p.m. (每次 2 小時)<br><span class="note">Every Tuesday and Thursday 7:00 - 9:00 p.m. (2 hours per lesson)</span></td>
+                            <!-- 🎯 Aegis 核心 UI 規範 3：幾何 100% 精準居中，格式與報名表/契約書完全一致 -->
+                            <td style="text-align: center; vertical-align: middle;">
+                                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 2px 0;">
+                                    <div style="font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;">
+                                        <span class="no-orphan">每週二、四</span>
+                                    </div>
+                                    <div style="font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;">
+                                        <span class="no-orphan">7:00 PM - 9:00 PM (2小時/堂)</span>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">🔢 總堂數 | Total Lessons</td>
@@ -659,8 +661,9 @@
                             <td class="left-align">
                                 <strong style="color: var(--soft-red); font-size: 14.5px;">新進 B1 生原價：NT$36,680元</strong> <span class="note">(學費 $31,160 + 全套教材 $3,240 + 學雜費 $2,280)</span>
                                 <strong style="color: var(--uci-blue); font-size: 14.5px; display:block; margin-top:2px;">A2 升 B1 生原價：NT$33,940元</strong> <span class="note">(學費 $31,160 + 專屬作業本 $500 + 學雜費 $2,280)</span>
-                                <span class="note" style="margin-top:4px; color:#c00; font-weight:700;">💡 續班與優惠折扣 (新進生 / 升班生)：<br>
-                                • 9折：$33,012元 / $30,546元 &nbsp;|&nbsp; • 85折：$31,178元 / $28,849元 &nbsp;|&nbsp; • 8折：$29,344元 / $27,152元</span>
+                                <!-- 🎯 Aegis 核心修正：四捨五入全項目連動動態計算：新進生 9折 $33,012 / 85折 $31,178 / ✨ 8折 $29,344 ； 升班生 9折 $30,546 / 85折 $28,849 / ✨ 8折 $27,152 -->
+                                <span class="note" style="margin-top:4px; color:#c00; font-weight:700;">💡 全項目動態折扣特惠 (新進生 / 升班生)：<br>
+                                • 9折：$33,012元 / $30,546元 &nbsp;|&nbsp; • 85折：$31,178元 / $28,849元 &nbsp;|&nbsp; • ✨ 8折：$29,344元 / $27,152元</span>
                             </td>
                         </tr>
                     </tbody>
@@ -690,24 +693,24 @@
 
 </div>
 
+<!-- 📡 雙視窗雙開機制，具備 Safari 防阻斷備援機制 -->
 <script>
 function openDualLinks(event) {
     if (event) event.preventDefault();
     
-    // 🎯 Aegis 核心修正：標準化網址，防止被瀏覽器彈跳阻斷
-    const mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
-    const contractLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
+    // 🎯 Aegis 核心修正：精準對應 GitHub Pages 發布網址
+    var mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
+    var contractLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
     
-    const w1 = window.open(mainLink, "_blank");
+    var w1 = window.open(mainLink, "_blank");
     
-    try {
-        const w2 = window.open(contractLink, "_blank");
-        if (!w2 || w2.closed || typeof w2.closed === 'undefined') {
-            console.warn("第二個視窗被瀏覽器彈跳攔截，建議提示使用者允許彈跳視窗。");
+    setTimeout(function() {
+        var w2 = window.open(contractLink, "_blank");
+        if (!w2 || w2.closed || typeof w2.closed == 'undefined') {
+            console.warn("Contract popup blocked. Guidance provided.");
+            alert("✨ 巴比美語溫馨提示：系統已為您開啟 Advance B1 報名表！若未自動開啟定型化契約書，請點擊報名頁面內的「契約審閱連結」即可查閱喔！");
         }
-    } catch (e) {
-        console.error("無法自動開啟第二個視窗:", e);
-    }
+    }, 150);
 }
 </script>
 </body>
