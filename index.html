@@ -658,12 +658,12 @@
                         </tr>
                         <tr>
                             <td style="font-weight: bold;">💰 課程學費 | Tuition Fee</td>
+                            <!-- 🎯 Aegis 核心 UI 規範 6 & 7：去身分標籤，落實 DM 簡潔美學，僅展示新生與舊生常態原價 -->
                             <td class="left-align">
-                                <strong style="color: var(--soft-red); font-size: 14.5px;">新進 B1 生原價：NT$36,680元</strong> <span class="note">(學費 $31,160 + 全套教材 $3,240 + 學雜費 $2,280)</span>
-                                <strong style="color: var(--uci-blue); font-size: 14.5px; display:block; margin-top:2px;">A2 升 B1 生原價：NT$33,940元</strong> <span class="note">(學費 $31,160 + 專屬作業本 $500 + 學雜費 $2,280)</span>
-                                <!-- 🎯 Aegis 核心修正：四捨五入全項目連動動態計算：新進生 9折 $33,012 / 85折 $31,178 / ✨ 8折 $29,344 ； 升班生 9折 $30,546 / 85折 $28,849 / ✨ 8折 $27,152 -->
-                                <span class="note" style="margin-top:4px; color:#c00; font-weight:700;">💡 全項目動態折扣特惠 (新進生 / 升班生)：<br>
-                                • 9折：$33,012元 / $30,546元 &nbsp;|&nbsp; • 85折：$31,178元 / $28,849元 &nbsp;|&nbsp; • ✨ 8折：$29,344元 / $27,152元</span>
+                                <strong style="color: var(--soft-red); font-size: 14.5px;">新生（需購買教材）原價：NT$ 36,680 元</strong> 
+                                <span class="note">(基本學費 $31,160 + 全套教材 $3,240 + 學雜費 $2,280)</span>
+                                <strong style="color: var(--uci-blue); font-size: 14.5px; display:block; margin-top:4px;">舊生（無需購買教材）原價：NT$ 33,940 元</strong> 
+                                <span class="note">(基本學費 $31,160 + 專屬作業本 $500 + 學雜費 $2,280)</span>
                             </td>
                         </tr>
                     </tbody>
@@ -699,7 +699,7 @@ function openDualLinks(event) {
     if (event) event.preventDefault();
     
     // 🎯 Aegis 核心修正：精準對應 GitHub Pages 發布網址
-    var mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
+    var mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-adv_b1.html";
     var contractLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
     
     var w1 = window.open(mainLink, "_blank");
