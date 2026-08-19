@@ -49,7 +49,6 @@
             overflow: hidden;
         }
 
-        /* 🎯 螢幕瀏覽彈性自適應，徹底解決內容隱藏問題！ */
         .page { 
             position: relative;
             background: #fff;
@@ -72,7 +71,6 @@
             flex-direction: column;
         }
 
-        /* 👑 頂部 Header 視覺升級 */
         .header-flex-box {
             display: flex;
             align-items: center; 
@@ -172,7 +170,6 @@
             justify-content: space-between;
         }
 
-        /* 📜 動態捲動卡片樣式 */
         .description-scroll-box {
             background-color: var(--card-bg);
             border: 1px solid #1b3d6d !important;
@@ -189,7 +186,6 @@
         .description-scroll-box::-webkit-scrollbar { width: 5px; }
         .description-scroll-box::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 4px; }
         .description-scroll-box::-webkit-scrollbar-thumb { background: var(--uci-blue); border-radius: 4px; }
-        .description-scroll-box::-webkit-scrollbar-thumb:hover { background: #0077b6; }
 
         p.paragraph-desc {
             font-size: 13.5px;
@@ -236,7 +232,6 @@
             white-space: nowrap;
         }
 
-        /* 🔒 核心表格三大邊框防線：外框與內部單元格強制以 #1b3d6d 實體深藍顯影 */
         .table-container {
             width: 100%;
             margin-top: 8px;
@@ -360,7 +355,7 @@
         }
 
         .page-footer-img {
-            width: 100%;
+            width: 100%; 
             max-width: 100%; 
             max-height: 145px; 
             object-fit: contain;
@@ -429,7 +424,7 @@
             }
             table.ad-table th { background-color: #f0f4f8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .footer-image-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
-            .last-page-footer-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
+            .last-page-footer-box { width: 100% !important; margin: 0 auto !important; }
             .page-footer-img { max-height: 130px !important; }
             .join-us-btn-container { display: none !important; }
             table.ad-table, .info-card, .footer-image-box, .last-page-footer-box { page-break-inside: avoid; }
@@ -445,7 +440,7 @@
             .description-scroll-box { max-height: 260px; }
             table.ad-table { display: table; width: 100%; }
             .footer-image-box { width: calc(100% + 30px); margin-left: -15px; }
-            .last-page-footer-box { width: calc(100% + 30px); margin-left: -15px; }
+            .last-page-footer-box { width: 100%; margin: 0 auto; }
             .page-footer-img { max-height: 120px; }
         }
     </style>
@@ -658,9 +653,10 @@
 
         <div class="last-page-footer-box">
             <div class="join-us-btn-container">
-                <img src="Advcnce.png" alt="立即開啟巴比美語進階卓越之門" class="cta-join-us-img" onclick="openDualLinks(event)">
+                <!-- 🎯 圖片名稱與精準 URL 對齊修正區 -->
+                <img src="Advancejoinnow.png" alt="立即開啟巴比美語進階卓越之門" class="cta-join-us-img" onclick="openDualLinks(event)">
             </div>
-            <div class="footer-image-box" style="margin-top: 0;">
+            <div class="footer-image-box" style="margin-top: 0; width: 100%; margin-left: 0; justify-content: center;">
                 <img src="Advancekids.png" alt="巴比美語學員快樂探究合照" class="page-footer-img">
             </div>
         </div>
@@ -668,24 +664,20 @@
 
 </div>
 
-<!-- 📡 Aegis 修正版：完美破解 Safari/Chrome 防彈窗阻斷機制 -->
+<!-- 📡 Aegis 100% 雙開破解腳本：契合 GitHub 實體發布檔名 -->
 <script>
 function openDualLinks(event) {
     if (event) event.preventDefault();
     
-    // 🎯 網址標準化校準：對齊 GitHub 標準檔名
-    var mainLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-B1.html";
-    var contractLink = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-Advance-B1.html";
+    // 🎯 精準對齊 GitHub Pages 實體發布檔名
+    var formUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
+    var contractUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
     
-    // 🎯 核心修正：取消原本傳遞缺陷！在使用者真實點擊當下，同步發射兩個視窗！
-    var w1 = window.open(mainLink, "_blank");
-    var w2 = window.open(contractLink, "_blank");
+    // 1. 在新分頁開啟契約書（使用 1 次 window.open，手機 Safari 100% 放行）
+    window.open(contractUrl, "_blank");
     
-    // 🛡️ 防彈備援機制：如果第二個視窗被手機強硬阻斷，自動進行溫馨指引
-    if (!w2 || w2.closed || typeof w2.closed === 'undefined') {
-        console.warn("Contract popup blocked by mobile safety shield. Fallback engaged.");
-        alert("✨ 巴比美語溫馨提示：系統已為您開啟 Advance B1 報名表！若定型化契約未自動彈出，請於報名頁面點擊上方「契約審閱連結」即可查看喔！");
-    }
+    // 2. 將廣告本頁直接順暢切換為報名表（非彈窗，100% 成功不被攔截）
+    window.location.href = formUrl;
 }
 </script>
 </body>
