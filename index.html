@@ -9,7 +9,7 @@
     <!-- 引入專業雙語 Google Fonts 字型（Inter + Noto Sans TC） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -29,6 +29,8 @@
             box-shadow: none;
             box-sizing: border-box;
             font-family: 'Inter', 'Helvetica Neue', Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -37,7 +39,6 @@
             padding: 20px 0;
             color: var(--text-main);
             line-height: 1.55;
-            -webkit-font-smoothing: antialiased;
         }
 
         .ad-container {
@@ -424,7 +425,7 @@
             }
             table.ad-table th { background-color: #f0f4f8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .footer-image-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
-            .last-page-footer-box { width: 100% !important; margin: 0 auto !important; }
+            .last-page-footer-box { width: calc(100% + 36mm) !important; margin-left: -18mm !important; }
             .page-footer-img { max-height: 130px !important; }
             .join-us-btn-container { display: none !important; }
             table.ad-table, .info-card, .footer-image-box, .last-page-footer-box { page-break-inside: avoid; }
@@ -440,7 +441,7 @@
             .description-scroll-box { max-height: 260px; }
             table.ad-table { display: table; width: 100%; }
             .footer-image-box { width: calc(100% + 30px); margin-left: -15px; }
-            .last-page-footer-box { width: 100%; margin: 0 auto; }
+            .last-page-footer-box { width: calc(100% + 30px); margin-left: -15px; }
             .page-footer-img { max-height: 120px; }
         }
     </style>
@@ -653,8 +654,8 @@
 
         <div class="last-page-footer-box">
             <div class="join-us-btn-container">
-                <!-- 🎯 圖片名稱與精準 URL 對齊修正區 -->
-                <img src="Advancejoinnow.png" alt="立即開啟巴比美語進階卓越之門" class="cta-join-us-img" onclick="openDualLinks(event)">
+                <!-- 🎯 1. 圖片名稱變更為 Advance-registrationform.png  2. 點擊直接開啟 Advance B1 線上報名表 -->
+                <img src="Advance-registrationform.png" alt="點擊立即進行 Advance B1 線上報名登記" class="cta-join-us-img" onclick="openRegistrationForm(event)">
             </div>
             <div class="footer-image-box" style="margin-top: 0; width: 100%; margin-left: 0; justify-content: center;">
                 <img src="Advancekids.png" alt="巴比美語學員快樂探究合照" class="page-footer-img">
@@ -664,20 +665,16 @@
 
 </div>
 
-<!-- 📡 Aegis 100% 雙開破解腳本：契合 GitHub 實體發布檔名 -->
+<!-- 📡 Aegis 單頁精準跳轉腳本：點擊直接開啟線上報名表網頁，完全移除契約書連結 -->
 <script>
-function openDualLinks(event) {
+function openRegistrationForm(event) {
     if (event) event.preventDefault();
     
-    // 🎯 精準對齊 GitHub Pages 實體發布檔名
+    // 🎯 精準跳轉至 Joy 指揮官指定的 Advance B1 線上報名表網址
     var formUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Advance-adv_b1.html";
-    var contractUrl = "https://bobbyenglishschool.github.io/2026BobbyEnglish-Contract-AdvanceB1.html";
     
-    // 1. 在新分頁開啟契約書（使用 1 次 window.open，手機 Safari 100% 放行）
-    window.open(contractUrl, "_blank");
-    
-    // 2. 將廣告本頁直接順暢切換為報名表（非彈窗，100% 成功不被攔截）
-    window.location.href = formUrl;
+    // 順暢開跳轉至報名表新頁籤
+    window.open(formUrl, "_blank");
 }
 </script>
 </body>
